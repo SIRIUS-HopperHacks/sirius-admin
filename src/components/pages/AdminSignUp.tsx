@@ -21,7 +21,6 @@ const AdminSignUpPage: React.FC = () => {
       setError("Passwords do not match");
       return;
     }
-
   };
 
   return (

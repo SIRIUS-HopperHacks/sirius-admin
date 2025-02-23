@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Container, TextField, Box } from "@mui/material";
 import PrimaryButton from "@atoms/PrimaryButton";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 const AdminLogInPage: React.FC = () => {
   const navigate = useNavigate();
@@ -10,20 +9,9 @@ const AdminLogInPage: React.FC = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogIn = async (e: React.FormEvent) => {
+  const handleLogIn = (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      const response = await axios.post("http://localhost:5000/admin/login", {
-        employeeId,
-        password,
-      });
-
-      if (response.status === 200) {
-        navigate("/homepage");
-      }
-    } catch (err) {
-      setError("Invalid credentials. Please try again.");
-    }
+    
     navigate("/homepage");
   };
 
