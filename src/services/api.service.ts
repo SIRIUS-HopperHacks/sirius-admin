@@ -11,11 +11,11 @@ export class APIService {
   }
 
   async signUp( email:string, password: string) {
-    return await this.axios.post("/register", { email, password });
+    return await this.axios.post("/admin/register", { email, password });
   }
 
   async login(email: string, password: string) {
-    return await this.axios.post("/login", { email, password });
+    return await this.axios.post("/admin/login", { email, password });
   }
 
   async getAllAlerts() {
