@@ -47,8 +47,6 @@ const AdminSignUpPage: React.FC = () => {
           id="outlined-required"
           label="Name"
           placeholder="Your name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
           sx={{
             "& label": { color: "#980000" },
             "& label.Mui-focused": { color: "#980000" },
@@ -67,8 +65,6 @@ const AdminSignUpPage: React.FC = () => {
           name="email"
           type="email"
           placeholder="example@example.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
           sx={{
             "& label": { color: "#980000" },
             "& label.Mui-focused": { color: "#980000" },
@@ -85,8 +81,6 @@ const AdminSignUpPage: React.FC = () => {
           id="outlined-required"
           label="Government Employee ID"
           placeholder=""
-          value={employeeId}
-          onChange={(e) => setEmployeeId(e.target.value)}
           sx={{
             "& label": { color: "#980000" },
             "& label.Mui-focused": { color: "#980000" },
@@ -105,8 +99,6 @@ const AdminSignUpPage: React.FC = () => {
           type="password"
           name="password"
           placeholder="*******"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
           sx={{
             "& label": { color: "#980000" },
             "& label.Mui-focused": { color: "#980000" },
@@ -125,8 +117,6 @@ const AdminSignUpPage: React.FC = () => {
           type="password"
           name="confirmPassword"
           placeholder="*******"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
           sx={{
             "& label": { color: "#980000" },
             "& label.Mui-focused": { color: "#980000" },
@@ -156,7 +146,6 @@ const AdminSignUpPage: React.FC = () => {
           "&:hover": { backgroundColor: "#7a0000" },
           width: "30%",
         }}
-        onClick={handleSignUp}
       >
         Sign Up
       </PrimaryButton>
