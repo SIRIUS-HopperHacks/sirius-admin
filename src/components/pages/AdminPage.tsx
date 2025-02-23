@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Box, Typography, Link } from "@mui/material";
 import PrimaryButton from "@atoms/PrimaryButton";
-import PeopleOutlineIcon from "@mui/icons-material/PeopleOutline";
 import { useNavigate } from "react-router-dom";
+import logo from "@assets/logo/SIRIUS_ADMIN_LOGO.png";
 
 const AdminPage: React.FC = () => {
   const navigate = useNavigate();
@@ -31,7 +31,11 @@ const AdminPage: React.FC = () => {
         }}
       >
         <Box sx={{ display: "flex", justifyContent: "center", mb: 1 }}>
-          <PeopleOutlineIcon fontSize="large" />
+          <img
+            src={logo}
+            alt="Admin Sirius Logo"
+            style={{ width: "10rem", height: "auto", marginTop: "2rem" }}
+          />
         </Box>
         <Typography
           variant="h4"
