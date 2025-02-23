@@ -45,9 +45,48 @@ const AdminSignUpPage: React.FC = () => {
         <TextField
           required
           id="outlined-required"
+          label="Name"
+          placeholder="Your name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          sx={{
+            "& label": { color: "#980000" },
+            "& label.Mui-focused": { color: "#980000" },
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": { borderColor: "#980000" },
+              "&:hover fieldset": { borderColor: "#7a0000" },
+              "&.Mui-focused fieldset": { borderColor: "#980000" },
+            },
+            "& input": { color: "#980000" },
+          }}
+        />
+        <TextField
+          required
+          id="outlined-required"
           label="Email"
           name="email"
           type="email"
+          placeholder="example@example.com"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          sx={{
+            "& label": { color: "#980000" },
+            "& label.Mui-focused": { color: "#980000" },
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": { borderColor: "#980000" },
+              "&:hover fieldset": { borderColor: "#7a0000" },
+              "&.Mui-focused fieldset": { borderColor: "#980000" },
+            },
+            "& input": { color: "#980000" },
+          }}
+        />
+        <TextField
+          required
+          id="outlined-required"
+          label="Government Employee ID"
+          placeholder=""
+          value={employeeId}
+          onChange={(e) => setEmployeeId(e.target.value)}
           sx={{
             "& label": { color: "#980000" },
             "& label.Mui-focused": { color: "#980000" },
@@ -66,6 +105,8 @@ const AdminSignUpPage: React.FC = () => {
           type="password"
           name="password"
           placeholder="*******"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           sx={{
             "& label": { color: "#980000" },
             "& label.Mui-focused": { color: "#980000" },
@@ -84,6 +125,8 @@ const AdminSignUpPage: React.FC = () => {
           type="password"
           name="confirmPassword"
           placeholder="*******"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
           sx={{
             "& label": { color: "#980000" },
             "& label.Mui-focused": { color: "#980000" },
@@ -106,6 +149,17 @@ const AdminSignUpPage: React.FC = () => {
           Sign Up
         </PrimaryButton>
       </Box>
+      <PrimaryButton
+        type="submit"
+        sx={{
+          backgroundColor: "#980000",
+          "&:hover": { backgroundColor: "#7a0000" },
+          width: "30%",
+        }}
+        onClick={handleSignUp}
+      >
+        Sign Up
+      </PrimaryButton>
     </Container>
   );
 };
