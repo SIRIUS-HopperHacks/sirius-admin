@@ -15,6 +15,12 @@ const AdminPage: React.FC = () => {
     e.preventDefault();
     navigate("/signup");
   };
+
+  const handleUser = (e: React.FormEvent) => {
+    e.preventDefault();
+    window.location.href = "http://localhost:3000/";
+  };
+
   return (
     <Container>
       <Box
@@ -84,6 +90,11 @@ const AdminPage: React.FC = () => {
           >
             Sign Up
           </PrimaryButton>
+          <Typography>
+            <Link color="#980000" underline="hover" onClick={handleUser}>
+              Continue as User
+            </Link>
+          </Typography>
         </Box>
       </Box>
     </Container>
