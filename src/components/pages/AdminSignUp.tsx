@@ -1,26 +1,26 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Container, TextField, Box } from "@mui/material";
 import PrimaryButton from "@atoms/PrimaryButton";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { APIContext } from "@contexts/api.context";
 
 const AdminSignUpPage: React.FC = () => {
   const navigate = useNavigate();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [employeeId, setEmployeeId] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
-
-  const handleSignUp = async (e: React.FormEvent) => {
+  const api = useContext(APIContext);
+  const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setError("");
+    const formData = new FormData(e.currentTarget as HTMLFormElement);
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
+    const confirmPassword = formData.get("confirmPassword") as string;
 
     if (password !== confirmPassword) {
-      setError("Passwords do not match");
+      alert("Passwords do not match");
       return;
     }
+    
+    await api?.signUp(email, password);
+    navigate("/homepage");
   };
 
   return (
@@ -34,6 +34,8 @@ const AdminSignUpPage: React.FC = () => {
       }}
     >
       <Box
+        component="form"
+        onSubmit={handleSignUp}
         display={"flex"}
         flexDirection={"column"}
         gap={3}
@@ -62,6 +64,8 @@ const AdminSignUpPage: React.FC = () => {
           required
           id="outlined-required"
           label="Email"
+          name="email"
+          type="email"
           placeholder="example@example.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -99,6 +103,7 @@ const AdminSignUpPage: React.FC = () => {
           id="outlined-required"
           label="Password"
           type="password"
+          name="password"
           placeholder="*******"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -118,6 +123,7 @@ const AdminSignUpPage: React.FC = () => {
           id="outlined-required"
           label="Confirm Password"
           type="password"
+          name="confirmPassword"
           placeholder="*******"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
@@ -132,6 +138,16 @@ const AdminSignUpPage: React.FC = () => {
             "& input": { color: "#980000" },
           }}
         />
+        <PrimaryButton
+          type="submit"
+          sx={{
+            backgroundColor: "#980000",
+            "&:hover": { backgroundColor: "#7a0000" },
+            width: "30%",
+          }}
+        >
+          Sign Up
+        </PrimaryButton>
       </Box>
       <PrimaryButton
         type="submit"
