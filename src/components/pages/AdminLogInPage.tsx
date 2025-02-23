@@ -14,6 +14,7 @@ const AdminLogInPage: React.FC = () => {
     const password = formData.get("password") as string;
 
     await api?.login(email, password);
+
     navigate("/homepage");
   };
 
@@ -28,6 +29,7 @@ const AdminLogInPage: React.FC = () => {
       }}
     >
       <Box
+
         component="form"
         onSubmit={handleLogIn}
         display={"flex"}

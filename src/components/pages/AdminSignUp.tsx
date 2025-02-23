@@ -45,9 +45,42 @@ const AdminSignUpPage: React.FC = () => {
         <TextField
           required
           id="outlined-required"
+          label="Name"
+          placeholder="Your name"
+          sx={{
+            "& label": { color: "#980000" },
+            "& label.Mui-focused": { color: "#980000" },
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": { borderColor: "#980000" },
+              "&:hover fieldset": { borderColor: "#7a0000" },
+              "&.Mui-focused fieldset": { borderColor: "#980000" },
+            },
+            "& input": { color: "#980000" },
+          }}
+        />
+        <TextField
+          required
+          id="outlined-required"
           label="Email"
           name="email"
           type="email"
+          placeholder="example@example.com"
+          sx={{
+            "& label": { color: "#980000" },
+            "& label.Mui-focused": { color: "#980000" },
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": { borderColor: "#980000" },
+              "&:hover fieldset": { borderColor: "#7a0000" },
+              "&.Mui-focused fieldset": { borderColor: "#980000" },
+            },
+            "& input": { color: "#980000" },
+          }}
+        />
+        <TextField
+          required
+          id="outlined-required"
+          label="Government Employee ID"
+          placeholder=""
           sx={{
             "& label": { color: "#980000" },
             "& label.Mui-focused": { color: "#980000" },
@@ -106,6 +139,16 @@ const AdminSignUpPage: React.FC = () => {
           Sign Up
         </PrimaryButton>
       </Box>
+      <PrimaryButton
+        type="submit"
+        sx={{
+          backgroundColor: "#980000",
+          "&:hover": { backgroundColor: "#7a0000" },
+          width: "30%",
+        }}
+      >
+        Sign Up
+      </PrimaryButton>
     </Container>
   );
 };
